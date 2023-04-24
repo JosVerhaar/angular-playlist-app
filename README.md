@@ -27,11 +27,11 @@ Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
 When you run `npm run test:coverage` Jest will check the test coverage. You can find the report as an HTML page here `angular-playlist-app/coverage/lcov-report/index.html`
 
 ## How does Angular-Playlist-App work?
-When tje database and development server has been started, navigate to `http://localhost:4200/` (standard port). This is the homepage.
+When the database and development server both run, navigate to `http://localhost:4200/` (standard port). This is the homepage.
 With the navigation menu you can navigate to: `Playlists` and `Artists`.
 
 ### Search
-Every page has a search component. With this component you can search on (parts of) the name. Type in your searchstring and click `Search`. With the x-symbol you can clear the searchfield.
+Every page has a search component. With this component you can search on (parts of) the name. Type in your search string and click `Search`. With the x-symbol you can clear the searchfield.
 
 ### Pagination
 Every page has a pagination component. You can set the preferred amount of items you want to see on a single page.
