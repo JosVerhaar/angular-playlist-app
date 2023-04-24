@@ -1,0 +1,22 @@
+<div class="container overview">
+  <app-base-item-overview [totalRows]="totalRows" [showActionButton]="true" (searchCompleted)="getItems($event)"
+                          (onPageSizeChange)="getItems($event)"
+                          (onPageChange)="getItems($event)" (actionButtonClicked)="createPlaylist()">
+    <ng-container overviewFullTitle i18n><strong>Playlists</strong> are Everything.</ng-container>
+    <ng-container overviewShortTitle i18n>Playlists</ng-container>
+    <ng-container itemTable>
+      <app-name-table [namedItems]="playlists" [rowActionsTemplate]="rowActions">
+        <ng-template #rowActions let-playlist="item">
+          <a class="fs-600 clr-primary" i18n-title title="View songs" routerLink="./{{playlist.id}}/songs">
+            <i class="bi bi-cassette"></i>
+          </a>
+          <a class="fs-600 clr-primary" i18n-title title="Remove from playlist" (click)="deletePlaylist(playlist)">
+            <i class="bi bi-trash"></i>
+          </a>
+        </ng-template>
+        <ng-container emptyStateTitle i18n>No playlist found!</ng-container>
+        <ng-container emptyStateParagraph i18n>Go create a playlist.</ng-container>
+      </app-name-table>
+    </ng-container>
+  </app-base-item-overview>
+</div>

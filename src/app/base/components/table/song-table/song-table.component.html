@@ -1,0 +1,54 @@
+<ul *ngIf="songs.length > 0 else emptyState">
+  <li *ngFor="let song of songs" class="data-row-item">
+    <ng-container *ngTemplateOutlet="smallTemplate; context: {song: song}">
+    </ng-container>
+    <ng-container *ngTemplateOutlet="largeTemplate; context: {song: song}">
+    </ng-container>
+  </li>
+</ul>
+
+<ng-template #smallTemplate let-song="song">
+  <div class="flex-column d-block d-sm-none">
+    <h3>{{ song.name }}</h3>
+    <div class="d-flex justify-content-between align-items-center">
+      <div><span class="small text-muted" i18n>Artist:</span>&nbsp;<span>{{ song.artist }}</span></div>
+      <div *ngIf="rowActionsTemplate" class="align-items-center justify-content-center">
+        <ng-container *ngTemplateOutlet="rowActionsTemplate; context: {song: song}">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #largeTemplate let-song="song">
+  <div class="d-inline-flex flex-wrap d-none d-sm-flex">
+    <div class="w-100">
+      <h3 class="w-50 d-inline-flex">{{ song.name }}</h3>
+      <div class="w-50 d-inline-flex">
+        <span class="small text-muted" i18n>Artist:</span>&nbsp;<span>{{ song.artist }}</span>
+      </div>
+    </div>
+    <div class="d-flex align-items-center w-100">
+      <div class="w-50 d-inline-flex flex-wrap align-items-center justify-content-between">
+        <div><span class="small text-muted" i18n>Duration:</span>&nbsp;<span>{{ song.duration | date:'mm:ss' }}</span>
+        </div>
+        <div><span class="small text-muted" i18n>Year:</span>&nbsp;<span>{{ song.year }}</span></div>
+        <div><span class="small text-muted" i18n>Bpm:</span>&nbsp;<span>{{ song.bpm }}</span></div>
+        <div><span class="small text-muted" i18n>Genre:</span>&nbsp;<span>{{ song.genre }}</span></div>
+        <div><span class="small text-muted" i18n>Album:</span>&nbsp;<span>{{ song.album }}</span></div>
+      </div>
+      <div *ngIf="rowActionsTemplate"
+           class="d-none d-sm-flex w-50 d-inline-flex align-items-center justify-content-end">
+        <ng-container *ngTemplateOutlet="rowActionsTemplate; context: {song: song}">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #emptyState>
+  <div class="d-flex flex-column align-items-center mt-5">
+    <h2 class="fs-600" i18n>No songs found!</h2>
+    <p i18n>Go find a good <a class="text-link" routerLink="/artist">artist</a>.</p>
+  </div>
+</ng-template>

@@ -1,0 +1,36 @@
+@use "../abstracts/index" as *;
+
+.data-row-item {
+  padding: 20px 15px;
+  -webkit-transition: all .2s cubic-bezier(.02,.01,.47,1);
+  transition: all .2s cubic-bezier(.02,.01,.47,1);
+  margin-left: -15px;
+  border-top: 1px solid transparent;
+
+  & h3 {
+    width: 90%;
+    font-size: 22px;
+    line-height: 40px;
+  }
+
+  & a {
+    min-width: 0;
+  }
+
+  & a:hover {
+    color: #3c3c99;
+  }
+
+  &:hover {
+    background: $clr-white;
+    border-color: $clr-white;
+    border-top: 1px solid rgba(0,0,0,.05);
+    border-radius: 3px;
+    box-shadow: 0 20px 30px rgb(36 50 66 / 14%);
+    -webkit-transform: scale(102%);
+    transform: scale(102%);
+    -webkit-transition-delay: 0s!important;
+    transition-delay: 0s!important;
+  }
+
+}

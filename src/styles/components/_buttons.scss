@@ -1,0 +1,27 @@
+@use "../abstracts/index" as *;
+
+.button {
+  padding: 12px 16px;
+  background: $clr-primary;
+  border-radius: 4px;
+  color: $clr-white;
+  font-weight: 600;
+  font-size: 16px;
+  -webkit-transition: color .2s,background-color .2s,border-color .2s,-webkit-transform .2s;
+  transition: color .2s,background-color .2s,border-color .2s,-webkit-transform .2s;
+  transition: color .2s,background-color .2s,border-color .2s,transform .2s;
+  transition: color .2s,background-color .2s,border-color .2s,transform .2s,-webkit-transform .2s;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #0f0d17;
+    background-color: $clr-white;
+    border-color: #adb5bd;
+    box-shadow: 0 12px 16px rgb(0 0 0 / 20%);
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+  }
+}
+
+

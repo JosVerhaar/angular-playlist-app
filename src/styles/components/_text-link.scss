@@ -1,0 +1,7 @@
+@use "../abstracts/index" as *;
+
+.text-link:hover {
+  color: $clr-primary;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search by name" aria-label="Search by name"
+         [ngbTypeahead]="typeAheadFunction" [(ngModel)]="searchTerm" (focusout)="searchCompleted.emit(searchTerm)">
+  <button class="btn btn-outline-secondary" type="button" (click)="clearSearchTerm()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <button class="btn btn-outline-secondary" type="button" (click)="searchCompleted.emit(searchTerm)">
+    <i class="bi bi-search"></i>&nbsp;<span class="d-none d-sm-inline-block" i18n>Search</span>
+  </button>
+</div>
+<div class="ms-2">
+  <small *ngIf="isSearching" class="form-text text-muted" i18n>searching...</small>
+  <div class="invalid-feedback d-block" *ngIf="searchFailed" i18n>Sorry, suggestions could not be loaded.</div>
+</div>

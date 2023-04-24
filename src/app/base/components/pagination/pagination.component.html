@@ -1,0 +1,14 @@
+<div class="pagination-wrapper bg-white fixed-bottom d-flex align-items-center">
+  <div class="container d-flex justify-content-around justify-content-sm-between">
+    <div class="d-none d-sm-flex align-items-center">
+      <span i18n>Show</span>:&nbsp;
+      <select class="form-control" i18n-title title="Entries per page" id="pageSizeSelector" #pageSizeSelector
+              (change)="handlePageSizeChange(pageSizeSelector.value)">
+        <option *ngFor="let size of pageSizes" [value]="size">{{size}}</option>
+      </select>
+    </div>
+    <ngb-pagination [disabled]="disabled" [(page)]="currentPage" [pageSize]="pageLimit"
+                    [collectionSize]="collectionSize"
+                    [ellipses]="true" [rotate]="true" [maxSize]="5" (pageChange)="handlePageChange()"></ngb-pagination>
+  </div>
+</div>

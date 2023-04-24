@@ -1,0 +1,52 @@
+@use "../abstracts/index" as *;
+@use "node_modules/bootstrap/scss/bootstrap-grid" as *;
+
+:root {
+  --main-navigation-height: #{ $standard-min-height };
+}
+
+.nav-section {
+  min-height: var(--main-navigation-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-navigation-bg-color, $clr-white);
+
+  @include media-breakpoint-up(md) {
+    .brand {
+      display: block;
+      font-weight: $fw-800;
+    }
+
+    & {
+      justify-content: space-between;
+    }
+  }
+
+  & ul {
+    display: flex;
+    gap: var(--main-navigation-gap, 1rem);
+    align-items: center;
+    justify-content: center;
+
+    // To counter Bootstrap reset
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+}
+
+.brand {
+  display: none;
+}
+
+.nav-item {
+  text-transform: uppercase;
+
+  &:hover .nav-link {
+    color: $clr-primary;
+  }
+}
+
+.nav-link:hover {
+  color: $clr-primary;
+}

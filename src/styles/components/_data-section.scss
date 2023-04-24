@@ -1,0 +1,6 @@
+@use "../abstracts/index" as *;
+
+.data-section {
+  margin-top: var(--data-section-margin-top, 1rem);
+  margin-bottom: var(--data-section-margin-bottom, calc(var(--pagination-height) + 3rem));
+}

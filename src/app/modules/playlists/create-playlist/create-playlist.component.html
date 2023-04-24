@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title" i18n>Create playlist</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="playlistForm" novalidate #playlistFormElement="ngForm">
+    <label for="nameInput" class="form-label" i18n>Name</label>
+    <input type="text" class="form-control" id="nameInput" formControlName="name" required>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="mt-1 small text-danger">
+      <div *ngIf="name.errors?.['required']" i18n>Please provide a name.</div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <a class="text-link" (click)="modal.dismiss('cancel click')" i18n>Cancel</a>
+  <button type="button" ngbAutofocus class="button" (click)="checkForm()" i18n>Create</button>
+</div>

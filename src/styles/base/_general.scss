@@ -1,0 +1,13 @@
+@use "../abstracts/index" as *;
+
+body {
+  font-family: $ff-sans;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+a {
+  cursor: pointer;
+}

@@ -1,0 +1,20 @@
+@use "../abstracts/index" as *;
+
+:root {
+  --pagination-height: #{ $standard-min-height };
+}
+
+.pagination-wrapper {
+  min-height: var(--pagination-height);
+}
+
+.pagination {
+  --bs-pagination-color: #{$clr-primary};
+  --bs-pagination-hover-color: #{$clr-white};
+  --bs-pagination-hover-bg: #{$clr-primary};
+  --bs-pagination-hover-border-color: #{$clr-primary};
+  --bs-pagination-active-bg: #{$clr-primary};
+  --bs-pagination-active-border-color: #{$clr-primary};
+
+  margin-bottom: 0;
+}

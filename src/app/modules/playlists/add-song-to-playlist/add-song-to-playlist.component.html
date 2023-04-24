@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title" i18n>Add song to playlist</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="playlistForm" novalidate #playlistFormElement="ngForm">
+    <label for="playlistInput" class="form-label" i18n>Select a playlist</label>
+    <select class="form-control" formControlName="playlist" id="playlistInput">
+      <option *ngFor="let playlist of playlists" [value]="playlist.id">{{ playlist.name }}</option>
+    </select>
+    <div *ngIf="playlist.invalid && (playlist.dirty || playlist.touched)" class="mt-1 small text-danger">
+      <div *ngIf="playlist.errors?.['required']" i18n>Please select a playlist.</div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <a class="text-link" (click)="modal.dismiss('cancel click')" i18n>Cancel</a>
+  <button type="button" ngbAutofocus class="button" (click)="checkForm()" i18n>Ok</button>
+</div>

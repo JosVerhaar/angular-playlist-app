@@ -1,0 +1,19 @@
+<ul *ngIf="namedItems.length > 0 else emptyState">
+  <li *ngFor="let item of namedItems" class="data-row-item d-flex justify-content-between align-items-center">
+    <a class="flex-grow-1" routerLink="./{{item.id}}/songs"
+       i18n-title title="View songs">
+      <h3 class="text-truncate">{{ item.name }}</h3>
+    </a>
+    <div *ngIf="rowActionsTemplate" class="flex-container align-items-center">
+      <ng-container *ngTemplateOutlet="rowActionsTemplate; context: {item: item}">
+      </ng-container>
+    </div>
+  </li>
+</ul>
+
+<ng-template #emptyState>
+  <div class="d-flex flex-column align-items-center mt-5">
+    <h2 class="fs-600"><ng-content select="[emptyStateTitle]"></ng-content></h2>
+    <p><ng-content select="[emptyStateParagraph]"></ng-content></p>
+  </div>
+</ng-template>

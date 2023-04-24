@@ -1,0 +1,21 @@
+<div class="container overview">
+  <app-base-item-overview [totalRows]="totalRows" (searchCompleted)="getItems($event)"
+                          (onPageSizeChange)="getItems($event)"
+                          (onPageChange)="getItems($event)">
+    <ng-container overviewFullTitle i18n>Discover the best <strong>Artists</strong>.</ng-container>
+    <ng-container overviewShortTitle i18n>Artists</ng-container>
+    <ng-container itemTable>
+      <app-name-table [namedItems]="artists" [rowActionsTemplate]="rowActions">
+        <ng-template #rowActions let-artist="item">
+          <a class="fs-600 clr-primary" i18n-title title="View songs" routerLink="./{{artist.id}}/songs">
+            <i class="bi bi-cassette"></i>
+          </a>
+        </ng-template>
+        <ng-container emptyStateTitle i18n>No artists found!</ng-container>
+        <ng-container emptyStateParagraph i18n>
+          Go find a good <a class="text-link" routerLink="/artist">artist</a>.
+        </ng-container>
+      </app-name-table>
+    </ng-container>
+  </app-base-item-overview>
+</div>

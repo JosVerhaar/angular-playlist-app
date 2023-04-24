@@ -1,0 +1,17 @@
+<div class="container overview">
+  <app-base-item-overview [totalRows]="totalRows" (searchCompleted)="getItems($event)"
+                          (onPageSizeChange)="getItems($event)"
+                          (onPageChange)="getItems($event)">
+    <ng-container overviewFullTitle i18n>{{ artist.name }}</ng-container>
+    <ng-container overviewShortTitle i18n>{{ artist.name }}</ng-container>
+    <ng-container itemTable>
+      <app-song-table [songs]="songs" [rowActionsTemplate]="rowActions">
+        <ng-template #rowActions let-song="song">
+          <a class="fs-600 clr-primary" i18n-title title="Add to playlist" (click)="addSongToPlaylist(song)">
+            <i class="bi bi-plus-lg"></i>
+          </a>
+        </ng-template>
+      </app-song-table>
+    </ng-container>
+  </app-base-item-overview>
+</div>

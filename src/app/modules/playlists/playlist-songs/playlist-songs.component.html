@@ -1,0 +1,17 @@
+<div class="container overview">
+  <app-base-item-overview [totalRows]="totalRows" (searchCompleted)="getItems($event)"
+                          (onPageSizeChange)="getItems($event)"
+                          (onPageChange)="getItems($event)">
+    <ng-container overviewFullTitle i18n>{{ playlist.name }}</ng-container>
+    <ng-container overviewShortTitle i18n>{{ playlist.name }}</ng-container>
+    <ng-container itemTable>
+      <app-song-table [songs]="songs" [rowActionsTemplate]="rowActions">
+        <ng-template #rowActions let-song="song">
+          <a class="fs-600 clr-primary" i18n-title title="Remove from playlist" (click)="removeSongFromPlaylist(song)">
+            <i class="bi bi-trash"></i>
+          </a>
+        </ng-template>
+      </app-song-table>
+    </ng-container>
+  </app-base-item-overview>
+</div>

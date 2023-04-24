@@ -1,0 +1,20 @@
+<div class="overview-header mb-3">
+  <h1 class="full-title">
+    <ng-content select="[overviewFullTitle]"></ng-content>
+  </h1>
+  <h1 class="short-title">
+    <ng-content select="[overviewShortTitle]"></ng-content>
+  </h1>
+  <button *ngIf="showActionButton" (click)="actionButtonClicked.emit()"
+          class="button" i18n>Add new
+  </button>
+</div>
+
+<app-search-bar [typeAheadFunction]="searchItem" (searchCompleted)="handleSearchComplete($event)"></app-search-bar>
+
+<div class="data-section">
+  <ng-content itemTable></ng-content>
+</div>
+
+<app-pagination [disabled]="totalRows === 0" [collectionSize]="totalRows" (onPageChange)="onPageChange.emit($event)"
+                (onPageSizeChange)="onPageSizeChange.emit($event)"></app-pagination>

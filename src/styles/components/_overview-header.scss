@@ -1,0 +1,41 @@
+@use "../abstracts/index" as *;
+@use "node_modules/bootstrap/scss/bootstrap-grid" as *;
+
+.overview-header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--flex-container-gap, 1.5rem);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  & h1 {
+    font-size: fs(800);
+    line-height: 95%;
+  }
+
+  & .full-title {
+    display: none;
+  }
+
+  & button {
+    margin-inline: auto;
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-wrap: initial;
+
+    & .full-title {
+      display: block;
+      flex-basis: 75%;
+    }
+
+    & .short-title {
+      display: none;
+    }
+
+    & button {
+      margin-inline: 0;
+    }
+  }
+}
